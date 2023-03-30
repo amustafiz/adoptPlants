@@ -1,5 +1,13 @@
 import React, { FunctionComponent, ReactNode, useContext } from "react";
 import Head from "next/head";
+import { Inter } from "next/font/google";
+
+import NotificationContext from "@/store/NotificationContext";
+import Header from "./Header";
+import Notification from "../UI/Notification";
+import { NotificationType } from "@/types";
+
+const inter = Inter({ subsets: ["latin"] });
 
 interface LayoutProps {
   children?: ReactNode;
@@ -8,6 +16,11 @@ interface LayoutProps {
 const Layout: FunctionComponent<LayoutProps> = ({
   children,
 }: React.PropsWithChildren) => {
+  const notificationCtx = useContext(NotificationContext);
+
+  const activeNotification =
+    notificationCtx.notification as NotificationType | null;
+
   return (
     <>
       <Head>
@@ -20,8 +33,15 @@ const Layout: FunctionComponent<LayoutProps> = ({
           overflowY: "scroll",
         }}
       >
-        <div>Header space</div>
+        <Header />
         <main style={{ height: "100%" }}>{children}</main>
+        {activeNotification && (
+          <Notification
+            title={activeNotification?.title}
+            status={activeNotification?.status}
+            message={activeNotification?.message}
+          />
+        )}
       </div>
     </>
   );

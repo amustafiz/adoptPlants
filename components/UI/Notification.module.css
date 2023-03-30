@@ -1,0 +1,31 @@
+.notification {
+  position: fixed;
+  bottom: 30%;
+  right: 30%;
+  width: 500px;
+  max-width: calc(100% - 30px);
+  border-radius: 15px;
+  background-color: #1b1b1b;
+  z-index: 50;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.2);
+  padding: 10px 10px;
+}
+
+.notification h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  /* color: white; */
+}
+
+.pending {
+  background-color: #177cbe;
+  text: white;
+}
+
+.success {
+  background-color: #10be58;
+}
+
+.error {
+  background-color: #e65035;
+}

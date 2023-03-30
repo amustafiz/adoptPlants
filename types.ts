@@ -34,3 +34,15 @@ export interface Ad {
   cycle: keyof typeof Cycle;
   authorName: string;
 }
+
+export interface User {
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface NotificationType {
+  title?: string;
+  status?: string;
+  message?: string;
+}
