@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import classes from "./Header.module.css";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-import NavLogo from "./NavLogo";
 
 /*
 modify the header to include a signin flow
@@ -29,7 +28,7 @@ const Header = () => {
 
   const logoutHandler = () => {
     signOut({ redirect: false });
-    router.push("/");
+    router.push("/ads");
   };
 
   return (

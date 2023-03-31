@@ -17,7 +17,7 @@ const CreateAdPage: NextPageWithLayout = () => {
         "Content-Type": "application/json",
       },
     });
-    console.log(response);
+    // console.log(response);
   };
 
   return <>{session && <CreateAdForm handleSubmit={handleFormSubmit} />}</>;
