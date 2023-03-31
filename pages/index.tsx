@@ -6,7 +6,7 @@ import React from "react";
 import { GetStaticProps } from "next";
 import type { ReactElement } from "react";
 import Layout from "@/components/Layout/Layout";
-
+//1
 import { Ad, Water } from "@/types";
 import Carousel from "@/components/Ads/Carousel";
 import { listAds } from "./api/ads";
@@ -35,7 +35,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const allAds = await listAds();
   const frequentWateringAds = await listAds({ watering: Water.frequent });
 
-  if (!allAds && !frequentWateringAds) {
+  if (
+    Array.isArray(allAds) &&
+    !allAds &&
+    Array.isArray(frequentWateringAds) &&
+    !frequentWateringAds
+  ) {
     return { notFound: true };
   }
 

@@ -2,29 +2,24 @@ import React from "react";
 import type { ReactElement } from "react";
 import Layout from "@/components/Layout/Layout";
 import type { NextPageWithLayout } from "./_app";
-import { FormValueProps } from "@/components/Ads/CreateAdForm";
 import CreateAdForm from "@/components/Ads/CreateAdForm";
 import { getSession, useSession } from "next-auth/react";
 import { GetServerSidePropsContext } from "next";
-
+//1
 const CreateAdPage: NextPageWithLayout = () => {
   const { data: session } = useSession();
 
-  const handleFormSubmit = async (values: FormValueProps) => {
-    const response = await fetch("/api/users/postAd", {
+  const handleFormSubmit = async (values: any) => {
+    const response = await fetch("/api/ads", {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
         "Content-Type": "application/json",
       },
     });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Something went wrong!");
-    }
+    console.log(response);
   };
+
   return <>{session && <CreateAdForm handleSubmit={handleFormSubmit} />}</>;
 };
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Ad } from "@/types";
 import classes from "./AdSummary.module.scss";
+// import { CldImage } from "next-cloudinary";
 
 type AdSummaryProps = {
   ad: Ad;
@@ -15,10 +16,10 @@ const AdSummary: React.FunctionComponent<AdSummaryProps> = ({
   idx,
   currentIndex,
 }: AdSummaryProps) => {
-  const { title, description, _id, imageUrl } = ad;
+  const { title, description, _id: id, imageUrl, authorId } = ad;
 
   return (
-    <Link href={`${_id}`} className={classes.section}>
+    <Link href={`/${id}`} className={classes.section}>
       <div className={classes.contentOverlay}>
         <div className={classes.textContent}>
           <h3>{title}</h3>
@@ -29,14 +30,13 @@ const AdSummary: React.FunctionComponent<AdSummaryProps> = ({
         className={classes.img}
         style={{ width: "100%", height: "100%", position: "relative" }}
       >
-        {ad.imageUrl && (
-          <Image
-            src={`${imageUrl}`}
-            alt="plant"
-            layout="fill"
-            objectFit="cover"
-          />
-        )}
+        <Image
+          alt="title"
+          src={imageUrl}
+          layout="fill"
+          objectFit="cover"
+          priority={true}
+        />
       </div>
     </Link>
   );

@@ -45,6 +45,7 @@ const Carousel = ({ ads, header }: CarouselType) => {
       </div>
       <div className={classes.carousel}>
         <button
+          aria-label="left slider arrow"
           className={classes.arrowleft}
           onClick={handleLeftButtonClick}
           disabled={currentIndex <= 0}
@@ -71,6 +72,7 @@ const Carousel = ({ ads, header }: CarouselType) => {
           className={classes.arrowright}
           onClick={handleRightButtonClick}
           disabled={currentIndex + DISPLAYED_ADS_COUNT >= ads!.length}
+          aria-label="right slider arrow"
         >
           <svg
             width="20"

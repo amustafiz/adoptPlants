@@ -32,7 +32,7 @@ const Header = () => {
       <div className={classes.logo}>
         <Link href="/">Foliage Finder</Link>
       </div>
-      <nav className={classes.navigation}>
+      <ul className={classes.navigation}>
         <li className={classes.logo}>
           <Link href="createAd">Post an ad</Link>
         </li>
@@ -41,7 +41,7 @@ const Header = () => {
             <button onClick={logoutHandler}>Logout</button>
           </div>
         )}
-      </nav>
+      </ul>
     </header>
   );
 };
