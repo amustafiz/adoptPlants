@@ -5,7 +5,7 @@ import classes from "./RedirectButton.module.css";
 const RedirectButton = () => {
   return (
     <section className={classes.btnContainer}>
-      <Link href="/" className={classes.redirect}>
+      <Link href="/ads" className={classes.redirect}>
         Go back to home page
       </Link>
     </section>

@@ -19,7 +19,7 @@ const AdSummary: React.FunctionComponent<AdSummaryProps> = ({
   const { title, description, _id: id, imageUrl, authorId } = ad;
 
   return (
-    <Link href={`/${id}`} className={classes.section}>
+    <Link href={`ads/${id}`} className={classes.section}>
       <div className={classes.contentOverlay}>
         <div className={classes.textContent}>
           <h3>{title}</h3>

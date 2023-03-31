@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import classes from "./Header.module.css";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
+import NavLogo from "./NavLogo";
 
 /*
 modify the header to include a signin flow
@@ -13,12 +14,16 @@ const Header = () => {
   const router = useRouter();
   const path = router.pathname;
   const [showNavOptions, setShowNavOptions] = useState(false);
+  const [showNameLogo, setShowNameLogo] = useState(true);
 
   useEffect(() => {
     if (path !== "/createAds") {
       setShowNavOptions(true);
+    }
+    if (path === "/") {
+      setShowNameLogo(true);
     } else {
-      return;
+      setShowNameLogo(false);
     }
   }, [path]);
 
@@ -30,7 +35,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <Link href="/">Foliage Finder</Link>
+        <Link href="/ads">Foliage Finder</Link>
       </div>
       <ul className={classes.navigation}>
         <li className={classes.logo}>

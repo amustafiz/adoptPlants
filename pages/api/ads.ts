@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Collection, FindCursor, ObjectId } from "mongodb";
 import { generateFakeAdds } from "@/dataGenerator";
 import { Ad, Sunlight, Cycle, Water } from "@/types";
-
+//1
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
